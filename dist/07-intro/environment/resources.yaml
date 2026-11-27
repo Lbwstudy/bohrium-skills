@@ -1,0 +1,49 @@
+# Resource entry point for this submission.
+# Paths are resolved relative to the directory holding this file
+# (environment/), so "../run.py" is the submission's entry point.
+
+entry_point:
+  path: ../run.py
+  language: python
+  runtime: ">=3.8"
+  command: "python ../run.py --topic 07-intro"
+  note: >-
+    Pure standard-library Python. No third-party package is required, and no
+    network access is performed.
+
+skill:
+  path: ../SKILL.md
+  format: "YAML frontmatter + Markdown body"
+
+inputs:
+  - path: /input/case.json
+    required: true
+    description: case identifier and optional output_contract
+  - path: /input/task.md
+    required: false
+    description: the task statement for this case
+  - path: /input/
+    required: true
+    description: >-
+      source material (PDF / DOCX / HTML / Markdown / TXT, or .tex and .bib for
+      the LaTeX topic); any readable file in this directory is considered
+
+outputs:
+  - path: /app/output/result.json
+    required: true
+    description: >-
+      fixed keys case_id / status / result / evidence / sources / uncertainty /
+      changes / notes
+
+working_directory: /app/work
+
+determinism:
+  seeds: none
+  network: false
+  clock: false
+  note: >-
+    Output depends only on the input files and on no external state. Repeating
+    the same input reproduces the same findings, evidence and status. The only
+    fields that vary between runs are the timing ones (run.elapsed_seconds and
+    the elapsed_seconds / seconds_headroom / words_per_second entries of
+    self_check.axes.cost), which record how long this machine took.

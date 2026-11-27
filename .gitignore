@@ -1,0 +1,21 @@
+# local test workspace: fixtures, run outputs, bytecode
+.t/
+dist/*/core/__pycache__/
+dist/*/topics/__pycache__/
+__pycache__/
+*.pyc
+
+# scratch notes
+brief.txt
+reg.txt
+
+# superseded first attempt: a hand-written stdlib PDF parser that the platform's
+# own pdf-text-tool makes redundant. Kept locally, not shipped.
+bsk/
+
+# third-party papers used as local fixtures; not redistributed
+tests/corpus/
+
+# maintainer tool: uploads the tree through the REST API because github.com:443
+# is unreliable from this host; not part of any submission
+_push.py
